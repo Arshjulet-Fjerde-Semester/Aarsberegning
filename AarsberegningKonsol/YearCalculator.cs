@@ -8,115 +8,119 @@ namespace AarsberegningKonsol
 {
     public class YearCalculator
     {
-        public List<Event> Events { get; set; }
-        public List<Event> DisplayEvents { get; set; }
+        public List<Holiday> Holidays { get; set; }
+        public List<Holiday> DisplayHolidays { get; set; }
         public Calculations Calc { get; set; }
+        public Excel Excel { get; set; }
 
         public YearCalculator()
         {
             Calc = new Calculations(DateTime.Now.Year);
-            DisplayEvents = new List<Event>();
+            DisplayHolidays = new List<Holiday>();
+            Excel = new Excel();
 
-            Events = new List<Event>()
-            {
-                new Event("Nytårsdag"), //0
-                new Event("SENytår"),
-                new Event("H3K"),
-                new Event("FørsteSEH3K"),
-                new Event("AndenSEH3K"),
-                new Event("TredjeSEH3K"), //5
-                new Event("FjerdeSEH3K"),
-                new Event("FemteSEH3K"),
-                new Event("SjetteSEH3K"),
-                new Event("SidsteSEH3K"),
-                new Event("Septuagesima"), //10
-                new Event("Sexagesima"),
-                new Event("Fastelavn"),
-                new Event("FørsteSIFasten"),
-                new Event("AndenSIFasten"),
-                new Event("TredjeSIFasten"), //15
-                new Event("Midfaste"),
-                new Event("MariaeBebudelse"),
-                new Event("Palmesøndag"),
-                new Event("Skærtorsdag"),
-                new Event("Langfredag"), //20
-                new Event("Påskedag"),
-                new Event("AndenPåskedag"),
-                new Event("FørsteSEPåske"),
-                new Event("AndenSEPåske"),
-                new Event("TredjeSEPåske"), //25
-                new Event("Bededag"),
-                new Event("FjerdeSEPåske"),
-                new Event("FemteSEPåske"),
-                new Event("KristiHimmelfart"),
-                new Event("SjetteSEPåske"), //30
-                new Event("Pinsedag"),
-                new Event("AndenPinsedag"),
-                new Event("Trinitatis"),
-                new Event("FørsteSETrin"),
-                new Event("AndenSETrin"), //35
-                new Event("TredjeSETrin"),
-                new Event("FjerdeSETrin"),
-                new Event("FemteSETrin"),
-                new Event("SjetteSETrin"),
-                new Event("SyvendeSETrin"), //40
-                new Event("OttendeSETrin"),
-                new Event("NiendeSETrin"),
-                new Event("TiendeSETrin"),
-                new Event("ElveteSETrin"),
-                new Event("TolvteSETrin"), //45
-                new Event("TrettendeSETrin"),
-                new Event("FjortendeSETrin"),
-                new Event("FemtendeSETrin"),
-                new Event("SekstendeSETrin"),
-                new Event("SyttendeSETrin"), //50
-                new Event("AttendeSETrin"),
-                new Event("NittendeSETrin"),
-                new Event("TyvendeSETrin"),
-                new Event("EnogtyvendeSETrin"),
-                new Event("ToogtyvendeSETrin"), //55
-                new Event("TreogtyvendeSETrin"),
-                new Event("FireogtyvendeSETrin"),
-                new Event("FemogtyvendeSETrin"),
-                new Event("SeksogtyvendeSETrin"),
-                new Event("SyvogtyvendeSETrin"), //60
-                new Event("FørsteSIAdvent"),
-                new Event("AndenSIAdvent"),
-                new Event("TredjeSIAdvent"),
-                new Event("FjerdeSIAdvent"),
-                new Event("Juledag"), //65
-                new Event("Andenjuledag"),
-                new Event("Julesøndag"),
-                new Event("Allehelgen"),
-                new Event("SidsteSIKirkeaaret") //69
-            };
+            Holidays = Excel.GetAllHolidays();
+
+            //Holidays = new List<Holiday>()
+            //{
+            //    new Holiday("Nytårsdag"), //0
+            //    new Holiday("SENytår"),
+            //    new Holiday("H3K"),
+            //    new Holiday("FørsteSEH3K"),
+            //    new Holiday("AndenSEH3K"),
+            //    new Holiday("TredjeSEH3K"), //5
+            //    new Holiday("FjerdeSEH3K"),
+            //    new Holiday("FemteSEH3K"),
+            //    new Holiday("SjetteSEH3K"),
+            //    new Holiday("SidsteSEH3K"),
+            //    new Holiday("Septuagesima"), //10
+            //    new Holiday("Sexagesima"),
+            //    new Holiday("Fastelavn"),
+            //    new Holiday("FørsteSIFasten"),
+            //    new Holiday("AndenSIFasten"),
+            //    new Holiday("TredjeSIFasten"), //15
+            //    new Holiday("Midfaste"),
+            //    new Holiday("MariaeBebudelse"),
+            //    new Holiday("Palmesøndag"),
+            //    new Holiday("Skærtorsdag"),
+            //    new Holiday("Langfredag"), //20
+            //    new Holiday("Påskedag"),
+            //    new Holiday("AndenPåskedag"),
+            //    new Holiday("FørsteSEPåske"),
+            //    new Holiday("AndenSEPåske"),
+            //    new Holiday("TredjeSEPåske"), //25
+            //    new Holiday("Bededag"),
+            //    new Holiday("FjerdeSEPåske"),
+            //    new Holiday("FemteSEPåske"),
+            //    new Holiday("KristiHimmelfart"),
+            //    new Holiday("SjetteSEPåske"), //30
+            //    new Holiday("Pinsedag"),
+            //    new Holiday("AndenPinsedag"),
+            //    new Holiday("Trinitatis"),
+            //    new Holiday("FørsteSETrin"),
+            //    new Holiday("AndenSETrin"), //35
+            //    new Holiday("TredjeSETrin"),
+            //    new Holiday("FjerdeSETrin"),
+            //    new Holiday("FemteSETrin"),
+            //    new Holiday("SjetteSETrin"),
+            //    new Holiday("SyvendeSETrin"), //40
+            //    new Holiday("OttendeSETrin"),
+            //    new Holiday("NiendeSETrin"),
+            //    new Holiday("TiendeSETrin"),
+            //    new Holiday("ElveteSETrin"),
+            //    new Holiday("TolvteSETrin"), //45
+            //    new Holiday("TrettendeSETrin"),
+            //    new Holiday("FjortendeSETrin"),
+            //    new Holiday("FemtendeSETrin"),
+            //    new Holiday("SekstendeSETrin"),
+            //    new Holiday("SyttendeSETrin"), //50
+            //    new Holiday("AttendeSETrin"),
+            //    new Holiday("NittendeSETrin"),
+            //    new Holiday("TyvendeSETrin"),
+            //    new Holiday("EnogtyvendeSETrin"),
+            //    new Holiday("ToogtyvendeSETrin"), //55
+            //    new Holiday("TreogtyvendeSETrin"),
+            //    new Holiday("FireogtyvendeSETrin"),
+            //    new Holiday("FemogtyvendeSETrin"),
+            //    new Holiday("SeksogtyvendeSETrin"),
+            //    new Holiday("SyvogtyvendeSETrin"), //60
+            //    new Holiday("FørsteSIAdvent"),
+            //    new Holiday("AndenSIAdvent"),
+            //    new Holiday("TredjeSIAdvent"),
+            //    new Holiday("FjerdeSIAdvent"),
+            //    new Holiday("Juledag"), //65
+            //    new Holiday("Andenjuledag"),
+            //    new Holiday("Julesøndag"),
+            //    new Holiday("Allehelgen"),
+            //    new Holiday("SidsteSIKirkeaaret") //69
+            //};
         }
 
         public void CalculateChurchYear(int year)
         {
             Calc.CalculateVariables(year);
 
-            if (DisplayEvents.Count != 0)
+            if (DisplayHolidays.Count != 0)
             {
-                DisplayEvents.Clear();
+                DisplayHolidays.Clear();
             }
 
             //Nytårsdag
-            Events[0].Date = new DateOnly(year, 1, 1);
-            DisplayEvents.Add(Events[0]); //Nytårsdag added
+            Holidays[0].Date = new DateOnly(year, 1, 1);
+            DisplayHolidays.Add(Holidays[0]); //Nytårsdag added
 
-            //Påskedag - Not yet added to DisplayEvents
-            Events[21].Date = new DateOnly(year, Calc.Integers[9], Calc.Rest[9] + 1);
+            //Påskedag - Not yet added to DisplayHolidays
+            Holidays[21].Date = new DateOnly(year, Calc.Integers[9], Calc.Rest[9] + 1);
 
             //Loop Number for remaining H3K Sundays
             int loopNumber;
             if (Calc.WeekCode == 0 || Calc.WeekCode == 6)
             {
-                loopNumber = ((Events[21].Date.DayOfYear - 70) / 7) - 1;
+                loopNumber = ((Holidays[21].Date.DayOfYear - 70) / 7) - 1;
             }
             else
             {
-                loopNumber = (Events[21].Date.DayOfYear - 70) / 7;
+                loopNumber = (Holidays[21].Date.DayOfYear - 70) / 7;
             }
 
             //SENytår/H3K/FørsteSEH3K//
@@ -125,8 +129,8 @@ namespace AarsberegningKonsol
             //FørsteSEH3K
             if (Calc.WeekCode == 0)
             {
-                Events[3].Date = new DateOnly(year, 1, 8 - Calc.DOSError);
-                DisplayEvents.Add(Events[3]); //FørsteSEH3K added
+                Holidays[3].Date = new DateOnly(year, 1, 8 - Calc.DOSError);
+                DisplayHolidays.Add(Holidays[3]); //FørsteSEH3K added
 
                 //Loop to add remaining H3K Themed days.
                 for (int i = 0; i < loopNumber; i++)
@@ -134,34 +138,34 @@ namespace AarsberegningKonsol
                     //This if statement is to make the final day SidsteSEH3K if it is after 1991. If not then the loop just adds the next Sunday in the line.
                     if (i == loopNumber - 1 && !Calc.Before1992)
                     {
-                        Events[9].Date = Events[3 + i].Date.AddDays(7);
-                        DisplayEvents.Add(Events[9]); //SidsteSEH3K added
+                        Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
+                        DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
                     }
                     else
                     {
-                        Events[4 + i].Date = Events[3 + i].Date.AddDays(7);
-                        DisplayEvents.Add(Events[4 + i]); //Remaining Sundays after FørsteSEH3K added
+                        Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
+                        DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
                     }
                 }
             }
             //FørsteSEH3K
             else if (Calc.WeekCode == 6)
             {
-                Events[3].Date = new DateOnly(year, 1, 7 - Calc.DOSError);
-                DisplayEvents.Add(Events[3]);
+                Holidays[3].Date = new DateOnly(year, 1, 7 - Calc.DOSError);
+                DisplayHolidays.Add(Holidays[3]);
 
                 //Loop to add remaining H3K Themed days.
                 for (int i = 0; i < loopNumber; i++)
                 {
                     if (i == loopNumber - 1 && !Calc.Before1992)
                     {
-                        Events[9].Date = Events[3 + i].Date.AddDays(7);
-                        DisplayEvents.Add(Events[9]); //SidsteSEH3K added
+                        Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
+                        DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
                     }
                     else
                     {
-                        Events[4 + i].Date = Events[3 + i].Date.AddDays(7);
-                        DisplayEvents.Add(Events[4 + i]); //Remaining Sundays after FørsteSEH3K added
+                        Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
+                        DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
                     }
                 }
             }
@@ -171,22 +175,22 @@ namespace AarsberegningKonsol
                 //SENytår, this day only existed before 1992.
                 if (Calc.Before1992)
                 {
-                    Events[1].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
-                    Events[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError); //We only set this date here, to be used in the loop.
-                    DisplayEvents.Add(Events[1]); //SENytår
+                    Holidays[1].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
+                    Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError); //We only set this date here, to be used in the loop.
+                    DisplayHolidays.Add(Holidays[1]); //SENytår
 
                     //Loop to add remaining H3K Themed days.
                     for (int i = 0; i < loopNumber; i++)
                     {
-                        Events[3 + i].Date = Events[2 + i].Date.AddDays(7);
-                        DisplayEvents.Add(Events[3 + i]); //Remaining Sundays after SENytår added
+                        Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
+                        DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after SENytår added
                     }
                 }
                 //H3K
                 else
                 {
-                    Events[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
-                    DisplayEvents.Add(Events[2]); //H3K Added
+                    Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
+                    DisplayHolidays.Add(Holidays[2]); //H3K Added
 
                     //Loop to add remaining H3K Themed days.
                     for (int i = 0; i < loopNumber; i++)
@@ -194,14 +198,14 @@ namespace AarsberegningKonsol
                         if (i == loopNumber - 1)
                         {
                             //SidsteSEH3K
-                            Events[9].Date = Events[2 + i].Date.AddDays(7);
-                            DisplayEvents.Add(Events[9]); //SidsteSEH3K added
+                            Holidays[9].Date = Holidays[2 + i].Date.AddDays(7);
+                            DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
                         }
                         else
                         {
                             //Sundays after H3K
-                            Events[3 + i].Date = Events[2 + i].Date.AddDays(7);
-                            DisplayEvents.Add(Events[3 + i]); //Remaining Sundays after H3K added
+                            Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
+                            DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after H3K added
                         }
                     }
                 }
@@ -211,71 +215,71 @@ namespace AarsberegningKonsol
             //Adds Septuagesima, Sexagesima, Fastelavn, 1-3 SIFasten, Midfaste, Mariæ Bebudelse and Palmesøndag.
             for (int i = 10; i < 19; i++)
             {
-                Events[i].Date = DisplayEvents.Last().Date.AddDays(7);
-                DisplayEvents.Add(Events[i]);
+                Holidays[i].Date = DisplayHolidays.Last().Date.AddDays(7);
+                DisplayHolidays.Add(Holidays[i]);
             }
 
             //Skærtorsdag
-            Events[19].Date = DisplayEvents.Last().Date.AddDays(4);
-            DisplayEvents.Add(Events[19]);
+            Holidays[19].Date = DisplayHolidays.Last().Date.AddDays(4);
+            DisplayHolidays.Add(Holidays[19]);
 
             //Langfredag
-            Events[20].Date = DisplayEvents.Last().Date.AddDays(1);
-            DisplayEvents.Add(Events[20]);
+            Holidays[20].Date = DisplayHolidays.Last().Date.AddDays(1);
+            DisplayHolidays.Add(Holidays[20]);
 
             //Påskedag added
-            DisplayEvents.Add(Events[21]);
+            DisplayHolidays.Add(Holidays[21]);
 
             //AndenPåskedag
-            Events[22].Date = DisplayEvents.Last().Date.AddDays(1);
-            DisplayEvents.Add(Events[22]);
+            Holidays[22].Date = DisplayHolidays.Last().Date.AddDays(1);
+            DisplayHolidays.Add(Holidays[22]);
 
             //1-3 SEPåske
             for (int i = 23; i < 26; i++)
             {
                 if (i == 23)
                 {
-                    Events[i].Date = DisplayEvents.Last().Date.AddDays(6);
-                    DisplayEvents.Add(Events[i]);
+                    Holidays[i].Date = DisplayHolidays.Last().Date.AddDays(6);
+                    DisplayHolidays.Add(Holidays[i]);
                 }
                 else
                 {
-                    Events[i].Date = DisplayEvents.Last().Date.AddDays(7);
-                    DisplayEvents.Add(Events[i]);
+                    Holidays[i].Date = DisplayHolidays.Last().Date.AddDays(7);
+                    DisplayHolidays.Add(Holidays[i]);
                 }
             }
 
             //Bededag
-            Events[26].Date = DisplayEvents.Last().Date.AddDays(5);
-            DisplayEvents.Add(Events[26]);
+            Holidays[26].Date = DisplayHolidays.Last().Date.AddDays(5);
+            DisplayHolidays.Add(Holidays[26]);
 
             //4SEPåske
-            Events[27].Date = DisplayEvents.Last().Date.AddDays(2);
-            DisplayEvents.Add(Events[27]);
+            Holidays[27].Date = DisplayHolidays.Last().Date.AddDays(2);
+            DisplayHolidays.Add(Holidays[27]);
 
             //5SEPåske
-            Events[28].Date = DisplayEvents.Last().Date.AddDays(7);
-            DisplayEvents.Add(Events[28]);
+            Holidays[28].Date = DisplayHolidays.Last().Date.AddDays(7);
+            DisplayHolidays.Add(Holidays[28]);
 
             //KristiHimmelfart
-            Events[29].Date = DisplayEvents.Last().Date.AddDays(4);
-            DisplayEvents.Add(Events[29]);
+            Holidays[29].Date = DisplayHolidays.Last().Date.AddDays(4);
+            DisplayHolidays.Add(Holidays[29]);
 
             //6SEPåske
-            Events[30].Date = DisplayEvents.Last().Date.AddDays(3);
-            DisplayEvents.Add(Events[30]);
+            Holidays[30].Date = DisplayHolidays.Last().Date.AddDays(3);
+            DisplayHolidays.Add(Holidays[30]);
 
             //Pinsedag
-            Events[31].Date = DisplayEvents.Last().Date.AddDays(7);
-            DisplayEvents.Add(Events[31]);
+            Holidays[31].Date = DisplayHolidays.Last().Date.AddDays(7);
+            DisplayHolidays.Add(Holidays[31]);
 
             //AndenPinsedag
-            Events[32].Date = DisplayEvents.Last().Date.AddDays(1);
-            DisplayEvents.Add(Events[32]);
+            Holidays[32].Date = DisplayHolidays.Last().Date.AddDays(1);
+            DisplayHolidays.Add(Holidays[32]);
 
             //Trinitatis
-            Events[33].Date = DisplayEvents.Last().Date.AddDays(6);
-            DisplayEvents.Add(Events[33]);
+            Holidays[33].Date = DisplayHolidays.Last().Date.AddDays(6);
+            DisplayHolidays.Add(Holidays[33]);
 
             //LoopNumber is set to add all the Sundays after Trinitatis
             //KeyNumberOne is between 0-5, which makes the loopNumber between 22-27.
@@ -287,43 +291,43 @@ namespace AarsberegningKonsol
                 //This makes sure that the AllSaints (Allehelgen) is replacing the correct Sunday after Trinitatis.
                 if (i == 33 + Calc.AllSaintsNumber)
                 {
-                    Events[68].Date = DisplayEvents.Last().Date.AddDays(7);
-                    DisplayEvents.Add(Events[68]);
+                    Holidays[68].Date = DisplayHolidays.Last().Date.AddDays(7);
+                    DisplayHolidays.Add(Holidays[68]);
                 }
                 //This makes sure that if it is after 1992, and it is the final loop number, it adds SidsteSIKirkekaaret.
                 else if (i == 33 + loopNumber && !Calc.Before1992)
                 {
-                    Events[69].Date = DisplayEvents.Last().Date.AddDays(7);
-                    DisplayEvents.Add(Events[69]);
+                    Holidays[69].Date = DisplayHolidays.Last().Date.AddDays(7);
+                    DisplayHolidays.Add(Holidays[69]);
                 }
                 //Here we add all the normal Sundays after Trinitatis.
                 else
                 {
-                    Events[i].Date = DisplayEvents.Last().Date.AddDays(7);
-                    DisplayEvents.Add(Events[i]);
+                    Holidays[i].Date = DisplayHolidays.Last().Date.AddDays(7);
+                    DisplayHolidays.Add(Holidays[i]);
                 }
             }
 
             //This adds the 4 advent Sundays.
             for (int i = 61; i < 65; i++)
             {
-                Events[i].Date = DisplayEvents.Last().Date.AddDays(7);
-                DisplayEvents.Add(Events[i]);
+                Holidays[i].Date = DisplayHolidays.Last().Date.AddDays(7);
+                DisplayHolidays.Add(Holidays[i]);
             }
 
             //Adding Christmas Day. (Juledag)
-            Events[65].Date = new DateOnly(year, 12, 25);
-            DisplayEvents.Add(Events[65]);
+            Holidays[65].Date = new DateOnly(year, 12, 25);
+            DisplayHolidays.Add(Holidays[65]);
 
             //Adding Second Christmas Day. (Andenjuledag)
-            Events[66].Date = new DateOnly(year, 12, 26);
-            DisplayEvents.Add(Events[66]);
+            Holidays[66].Date = new DateOnly(year, 12, 26);
+            DisplayHolidays.Add(Holidays[66]);
 
             //Adding Christ Sunday (Julesøndag) by adding 7 days to Fourth Advent Sunday, if it does not happen on one of the Christmas Days.
             if (Calc.KeyNumberThree != 0 && Calc.KeyNumberThree != 6)
             {
-                Events[67].Date = Events[64].Date.AddDays(7);
-                DisplayEvents.Add(Events[67]);
+                Holidays[67].Date = Holidays[64].Date.AddDays(7);
+                DisplayHolidays.Add(Holidays[67]);
             }
         }
     }

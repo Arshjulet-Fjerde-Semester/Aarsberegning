@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace AarsberegningKonsol
 {
-    public class Event
+    public class Holiday
     {
         public string Name { get; set; }
         public DateOnly Date { get; set; }
 
-        public Event(string name)
+        public Holiday(string name)
         {
             Name = name;
         }
-        public Event(string name, DateOnly date)
+        public Holiday(string name, DateOnly date)
         {
             Name = name;
             Date = date;
