@@ -62,7 +62,7 @@ namespace AarsberegningKonsol
             for (int i = 0; i < AmountOfEpiphanyHolidays; i++)
             {
                 //If final loop and is before 1992
-                if (i == AmountOfEpiphanyHolidays - 1 && Calc.IsYearBefore1992(year))
+                if (i == AmountOfEpiphanyHolidays - 1 && !Calc.IsYearBefore1992(year))
                 {
                     holidays[9].Date = GetFirstEpiphanyHoliday(holidays, year).Date.AddDays(7 + 7 * i);
                     remainingHolidays.Add(holidays[9]); //holidays[9] = Final Sunday After Epiphany
