@@ -108,11 +108,11 @@ namespace AarsberegningKonsol
             }
 
             //Nytårsdag
-            Holidays[0].Date = new DateOnly(year, 1, 1);
+            Holidays[0].Date = new DateTime(year, 1, 1);
             DisplayHolidays.Add(Holidays[0]); //Nytårsdag added
 
             //Påskedag - Not yet added to DisplayHolidays
-            Holidays[21].Date = new DateOnly(year, Calc.Integers[9], Calc.Rest[9] + 1);
+            Holidays[21].Date = new DateTime(year, Calc.Integers[9], Calc.Rest[9] + 1);
 
             DisplayHolidays.AddRange(Epiphany.GetAllEpiphanyHolidays(Holidays, year));
 
@@ -133,7 +133,7 @@ namespace AarsberegningKonsol
             ////FørsteSEH3K
             //if (Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 0)
             //{
-            //    Holidays[3].Date = new DateOnly(year, 1, 8 - Calc.DOSError);
+            //    Holidays[3].Date = new DateTime(year, 1, 8 - Calc.DOSError);
             //    DisplayHolidays.Add(Holidays[3]); //FørsteSEH3K added
 
             //    //Loop to add remaining H3K Themed days.
@@ -155,7 +155,7 @@ namespace AarsberegningKonsol
             ////FørsteSEH3K
             //else if (Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 6)
             //{
-            //    Holidays[3].Date = new DateOnly(year, 1, 7 - Calc.DOSError);
+            //    Holidays[3].Date = new DateTime(year, 1, 7 - Calc.DOSError);
             //    DisplayHolidays.Add(Holidays[3]);
 
             //    //Loop to add remaining H3K Themed days.
@@ -179,8 +179,8 @@ namespace AarsberegningKonsol
             //    //SENytår, this day only existed before 1992.
             //    if (Calc.Before1992)
             //    {
-            //        Holidays[1].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
-            //        Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError); //We only set this date here, to be used in the loop.
+            //        Holidays[1].Date = new DateTime(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
+            //        Holidays[2].Date = new DateTime(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError); //We only set this date here, to be used in the loop.
             //        DisplayHolidays.Add(Holidays[1]); //SENytår
 
             //        //Loop to add remaining H3K Themed days.
@@ -193,7 +193,7 @@ namespace AarsberegningKonsol
             //    //H3K
             //    else
             //    {
-            //        Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
+            //        Holidays[2].Date = new DateTime(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
             //        DisplayHolidays.Add(Holidays[2]); //H3K Added
 
             //        //Loop to add remaining H3K Themed days.
@@ -320,11 +320,11 @@ namespace AarsberegningKonsol
             }
 
             //Adding Christmas Day. (Juledag)
-            Holidays[65].Date = new DateOnly(year, 12, 25);
+            Holidays[65].Date = new DateTime(year, 12, 25);
             DisplayHolidays.Add(Holidays[65]);
 
             //Adding Second Christmas Day. (Andenjuledag)
-            Holidays[66].Date = new DateOnly(year, 12, 26);
+            Holidays[66].Date = new DateTime(year, 12, 26);
             DisplayHolidays.Add(Holidays[66]);
 
             //Adding Christ Sunday (Julesøndag) by adding 7 days to Fourth Advent Sunday, if it does not happen on one of the Christmas Days.

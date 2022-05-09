@@ -35,22 +35,22 @@ namespace AarsberegningKonsol
         {
             if (Calc.IsFirstEpiphanyHolidayOnEighthOfJanuary())
             {
-                holidays[3].Date = new DateOnly(year, 1, 8 - Calc.LeapYearAdjustment);
+                holidays[3].Date = new DateTime(year, 1, 8 - Calc.LeapYearAdjustment);
                 return holidays[3]; //holidays[3] = First Sunday After Epiphany
             }
             else if (Calc.IsFirstEpiphanyHolidayOnSeventhOfJanuary())
             {
-                holidays[3].Date = new DateOnly(year, 1, 7 - Calc.LeapYearAdjustment);
+                holidays[3].Date = new DateTime(year, 1, 7 - Calc.LeapYearAdjustment);
                 return holidays[3]; //holidays[3] = First Sunday After Epiphany
             }
             else if (Calc.IsYearBefore1992(year))
             {
-                holidays[1].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.LeapYearAdjustment);
+                holidays[1].Date = new DateTime(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.LeapYearAdjustment);
                 return holidays[1]; ////holidays[1] = Sunday After New Year
             }
             else
             {
-                holidays[2].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.LeapYearAdjustment);
+                holidays[2].Date = new DateTime(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.LeapYearAdjustment);
                 return holidays[2]; //holidays[3] = Epiphany
             }
         }

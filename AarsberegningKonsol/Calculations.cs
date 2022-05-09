@@ -103,9 +103,9 @@ namespace AarsberegningKonsol
             }
         }
 
-        public DateOnly GetEasterDate(int year)
+        public DateTime GetEasterDate(int year)
         {
-            return new DateOnly(year, Integers[9], Rest[9] + 1);
+            return new DateTime(year, Integers[9], Rest[9] + 1);
         }
 
         private void IsYearLeapYear(int year)
@@ -115,15 +115,15 @@ namespace AarsberegningKonsol
             {
                 LeapYearCounter++;
             }
-            else if (year % 100 > 0)
+            if (year % 100 > 0)
             {
                 LeapYearCounter++;
             }
-            else if (year % 400 == 0)
+            if (year % 400 == 0)
             {
                 LeapYearCounter++;
             }
-            else if (year % 3600 > 0)
+            if (year % 3600 > 0)
             {
                 LeapYearCounter++;
             }
@@ -155,11 +155,11 @@ namespace AarsberegningKonsol
         {
             if (IsYearMislabeledAsLeapYear(year))
             {
-                DaysAfter1stOfJanuaryUntilFirstSunday = (((new DateOnly(year, Integers[9], Rest[9] + 1).DayOfYear - new DateTime(year, 1, 1).DayOfYear)) + 1) % 7;
+                DaysAfter1stOfJanuaryUntilFirstSunday = (((new DateTime(year, Integers[9], Rest[9] + 1).DayOfYear - new DateTime(year, 1, 1).DayOfYear)) + 1) % 7;
             }
             else
             {
-                DaysAfter1stOfJanuaryUntilFirstSunday = ((new DateOnly(year, Integers[9], Rest[9] + 1).DayOfYear - new DateTime(year, 1, 1).DayOfYear)) % 7;
+                DaysAfter1stOfJanuaryUntilFirstSunday = ((new DateTime(year, Integers[9], Rest[9] + 1).DayOfYear - new DateTime(year, 1, 1).DayOfYear)) % 7;
             }
         }
 

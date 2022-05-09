@@ -9,7 +9,7 @@ namespace AarsberegningKonsol
     public class Holiday
     {
         public string Name { get; set; }
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
         public Holiday()
         {
 
@@ -18,7 +18,7 @@ namespace AarsberegningKonsol
         {
             Name = name;
         }
-        public Holiday(string name, DateOnly date)
+        public Holiday(string name, DateTime date)
         {
             Name = name;
             Date = date;
