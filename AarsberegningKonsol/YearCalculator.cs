@@ -12,6 +12,7 @@ namespace AarsberegningKonsol
         public List<Holiday> DisplayHolidays { get; set; }
         public Calculations Calc { get; set; }
         public Excel Excel { get; set; }
+        public Epiphany Epiphany { get; set; }
 
         public YearCalculator()
         {
@@ -99,6 +100,7 @@ namespace AarsberegningKonsol
         public void CalculateChurchYear(int year)
         {
             Calc.CalculateVariables(year);
+            Epiphany = new Epiphany(year, Calc);
 
             if (DisplayHolidays.Count != 0)
             {
@@ -112,9 +114,11 @@ namespace AarsberegningKonsol
             //Påskedag - Not yet added to DisplayHolidays
             Holidays[21].Date = new DateOnly(year, Calc.Integers[9], Calc.Rest[9] + 1);
 
+            DisplayHolidays.AddRange(Epiphany.GetAllEpiphanyHolidays(Holidays, year));
+
             //Loop Number for remaining H3K Sundays
             int loopNumber;
-            if (Calc.WeekCode == 0 || Calc.WeekCode == 6)
+            if (Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 0 || Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 6)
             {
                 loopNumber = ((Holidays[21].Date.DayOfYear - 70) / 7) - 1;
             }
@@ -123,94 +127,94 @@ namespace AarsberegningKonsol
                 loopNumber = (Holidays[21].Date.DayOfYear - 70) / 7;
             }
 
-            //SENytår/H3K/FørsteSEH3K//
-            //We check if the WeekCode is 0 or 6, as it decides whether the first entry is H3K/SENytår or FørsteSEH3K
+            ////SENytår/H3K/FørsteSEH3K//
+            ////We check if the DaysAfter1stOfJanuaryUntilFirstSunday is 0 or 6, as it decides whether the first entry is H3K/SENytår or FørsteSEH3K
 
-            //FørsteSEH3K
-            if (Calc.WeekCode == 0)
-            {
-                Holidays[3].Date = new DateOnly(year, 1, 8 - Calc.DOSError);
-                DisplayHolidays.Add(Holidays[3]); //FørsteSEH3K added
+            ////FørsteSEH3K
+            //if (Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 0)
+            //{
+            //    Holidays[3].Date = new DateOnly(year, 1, 8 - Calc.DOSError);
+            //    DisplayHolidays.Add(Holidays[3]); //FørsteSEH3K added
 
-                //Loop to add remaining H3K Themed days.
-                for (int i = 0; i < loopNumber; i++)
-                {
-                    //This if statement is to make the final day SidsteSEH3K if it is after 1991. If not then the loop just adds the next Sunday in the line.
-                    if (i == loopNumber - 1 && !Calc.Before1992)
-                    {
-                        Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
-                        DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
-                    }
-                    else
-                    {
-                        Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
-                        DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
-                    }
-                }
-            }
-            //FørsteSEH3K
-            else if (Calc.WeekCode == 6)
-            {
-                Holidays[3].Date = new DateOnly(year, 1, 7 - Calc.DOSError);
-                DisplayHolidays.Add(Holidays[3]);
+            //    //Loop to add remaining H3K Themed days.
+            //    for (int i = 0; i < loopNumber; i++)
+            //    {
+            //        //This if statement is to make the final day SidsteSEH3K if it is after 1991. If not then the loop just adds the next Sunday in the line.
+            //        if (i == loopNumber - 1 && !Calc.Before1992)
+            //        {
+            //            Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
+            //            DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
+            //        }
+            //        else
+            //        {
+            //            Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
+            //            DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
+            //        }
+            //    }
+            //}
+            ////FørsteSEH3K
+            //else if (Calc.DaysAfter1stOfJanuaryUntilFirstSunday == 6)
+            //{
+            //    Holidays[3].Date = new DateOnly(year, 1, 7 - Calc.DOSError);
+            //    DisplayHolidays.Add(Holidays[3]);
 
-                //Loop to add remaining H3K Themed days.
-                for (int i = 0; i < loopNumber; i++)
-                {
-                    if (i == loopNumber - 1 && !Calc.Before1992)
-                    {
-                        Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
-                        DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
-                    }
-                    else
-                    {
-                        Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
-                        DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
-                    }
-                }
-            }
-            //H3K and SENytår
-            else
-            {
-                //SENytår, this day only existed before 1992.
-                if (Calc.Before1992)
-                {
-                    Holidays[1].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
-                    Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError); //We only set this date here, to be used in the loop.
-                    DisplayHolidays.Add(Holidays[1]); //SENytår
+            //    //Loop to add remaining H3K Themed days.
+            //    for (int i = 0; i < loopNumber; i++)
+            //    {
+            //        if (i == loopNumber - 1 && !Calc.Before1992)
+            //        {
+            //            Holidays[9].Date = Holidays[3 + i].Date.AddDays(7);
+            //            DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
+            //        }
+            //        else
+            //        {
+            //            Holidays[4 + i].Date = Holidays[3 + i].Date.AddDays(7);
+            //            DisplayHolidays.Add(Holidays[4 + i]); //Remaining Sundays after FørsteSEH3K added
+            //        }
+            //    }
+            //}
+            ////H3K and SENytår
+            //else
+            //{
+            //    //SENytår, this day only existed before 1992.
+            //    if (Calc.Before1992)
+            //    {
+            //        Holidays[1].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
+            //        Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError); //We only set this date here, to be used in the loop.
+            //        DisplayHolidays.Add(Holidays[1]); //SENytår
 
-                    //Loop to add remaining H3K Themed days.
-                    for (int i = 0; i < loopNumber; i++)
-                    {
-                        Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
-                        DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after SENytår added
-                    }
-                }
-                //H3K
-                else
-                {
-                    Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.WeekCode - Calc.DOSError);
-                    DisplayHolidays.Add(Holidays[2]); //H3K Added
+            //        //Loop to add remaining H3K Themed days.
+            //        for (int i = 0; i < loopNumber; i++)
+            //        {
+            //            Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
+            //            DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after SENytår added
+            //        }
+            //    }
+            //    //H3K
+            //    else
+            //    {
+            //        Holidays[2].Date = new DateOnly(year, 1, 1 + Calc.DaysAfter1stOfJanuaryUntilFirstSunday - Calc.DOSError);
+            //        DisplayHolidays.Add(Holidays[2]); //H3K Added
 
-                    //Loop to add remaining H3K Themed days.
-                    for (int i = 0; i < loopNumber; i++)
-                    {
-                        if (i == loopNumber - 1)
-                        {
-                            //SidsteSEH3K
-                            Holidays[9].Date = Holidays[2 + i].Date.AddDays(7);
-                            DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
-                        }
-                        else
-                        {
-                            //Sundays after H3K
-                            Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
-                            DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after H3K added
-                        }
-                    }
-                }
+            //        //Loop to add remaining H3K Themed days.
+            //        for (int i = 0; i < loopNumber; i++)
+            //        {
+            //            if (i == loopNumber - 1)
+            //            {
+            //                //SidsteSEH3K
+            //                Holidays[9].Date = Holidays[2 + i].Date.AddDays(7);
+            //                DisplayHolidays.Add(Holidays[9]); //SidsteSEH3K added
+            //            }
+            //            else
+            //            {
+            //                //Sundays after H3K
+            //                Holidays[3 + i].Date = Holidays[2 + i].Date.AddDays(7);
+            //                DisplayHolidays.Add(Holidays[3 + i]); //Remaining Sundays after H3K added
+            //            }
+            //        }
+            //    }
 
-            }
+            //}
 
             //Adds Septuagesima, Sexagesima, Fastelavn, 1-3 SIFasten, Midfaste, Mariæ Bebudelse and Palmesøndag.
             for (int i = 10; i < 19; i++)
@@ -295,7 +299,7 @@ namespace AarsberegningKonsol
                     DisplayHolidays.Add(Holidays[68]);
                 }
                 //This makes sure that if it is after 1992, and it is the final loop number, it adds SidsteSIKirkekaaret.
-                else if (i == 33 + loopNumber && !Calc.Before1992)
+                else if (i == 33 + loopNumber && !Calc.IsYearBefore1992(year))
                 {
                     Holidays[69].Date = DisplayHolidays.Last().Date.AddDays(7);
                     DisplayHolidays.Add(Holidays[69]);

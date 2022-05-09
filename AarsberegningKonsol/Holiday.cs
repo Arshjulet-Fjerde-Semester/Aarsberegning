@@ -10,7 +10,10 @@ namespace AarsberegningKonsol
     {
         public string Name { get; set; }
         public DateOnly Date { get; set; }
+        public Holiday()
+        {
 
+        }
         public Holiday(string name)
         {
             Name = name;
