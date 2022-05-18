@@ -13,14 +13,9 @@ namespace AarsberegningKonsol
         public int LeapYearAdjustment { get; set; }
         public bool IsLeapYear { get; set; }
         public int LeapYearCounter { get; set; }
-        public int KeyNumberOne { get; set; }
-        public int KeyNumberTwo { get; set; }
-        public int KeyNumberThree { get; set; }
-        public int AllSaintsNumber { get; set; }
-
-        private int[] Divisors = new int[] { 19, 100, 4, 25, 3, 30, 4, 7, 451, 31 };
-        public int[] Integers { get; set; } = new int[10];
-        public int[] Rest { get; set; } = new int[10];
+        private int[] Divisors { get; set; } = new int[] { 19, 100, 4, 25, 3, 30, 4, 7, 451, 31 };
+        private int[] Integers { get; set; } = new int[10];
+        private int[] Rest { get; set; } = new int[10];
 
         public Calculations(int year)
         {
@@ -38,21 +33,6 @@ namespace AarsberegningKonsol
             IsYearMislabeledAsLeapYear(year);
 
             SetDaysAfter1stOfJanuaryUntilFirstSunday(year);
-
-
-            KeyNumberOne = (40 - CalendarNr) / 7;
-            KeyNumberTwo = (CalendarNr - 1) / 7;
-            //KeyNumberThree is the amount of days Christmas Sunday is after 2nd Christmas Day. If 6 or 0, it falls on another christmas holiday. 
-            KeyNumberThree = CalendarNr % 7;
-
-            //AllSaintsNumber will be used to replace the correct Sunday of the Trinity.
-            AllSaintsNumber = 24 - KeyNumberTwo;
-
-            //Things to do
-            //Add consideration for before 1992 and H3K
-            //If the first Sunday after New Year is 2-6 it is 1.s.e.NewYear before 1992, or H3K from 1992. 7-8 = First.S.E.H3K
-            //Add consideration for ChristmasSunday
-
         }
 
         public bool IsFirstEpiphanyHolidayOnSeventhOrEigthOfJanuary()

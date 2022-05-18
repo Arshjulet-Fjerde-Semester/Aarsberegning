@@ -18,9 +18,8 @@ namespace AarsberegningKonsol
         {
             Name = name;
         }
-        public Holiday(string name, DateTime date)
+        public Holiday(DateTime date)
         {
-            Name = name;
             Date = date;
         }
     }

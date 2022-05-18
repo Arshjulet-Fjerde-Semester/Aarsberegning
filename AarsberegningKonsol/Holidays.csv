@@ -1,71 +1,71 @@
-Helligdag,Fremvisning Navn
-Nytårsdag,Nytårsdag
-Soendag Efter Nytår,Soendag efter nytår
-Helligtrekonger,Helligtrekonger
-Foerste Soendag Efter Helligtrekonger,1. Soendag efter H3K
-Anden Soendag Efter Helligtrekonger,2. Soendag efter H3K
-Tredje Soendag Efter Helligtrekonger,3. Soendag efter H3K
-Fjerde Soendag Efter Helligtrekonger,4. Soendag efter H3K
-Femte Soendag Efter Helligtrekonger,5. Soendag efter H3K
-Sjette Soendag Efter Helligtrekonger,6. Soendag efter H3K
-Sidste Soendag Efter Helligtrekonger,Sidste Soendag efter H3K
-Septuagesima,Septuagesima
-Sexagesima,Sexagesima
-Fastelavn,Fastelavn
-Foerste Soendag Inden Fasten,1. Soendag Inden Fasten
-Anden Soendag Inden Fasten,2. Soendag Inden Fasten
-Tredje Soendag Inden Fasten,3. Soendag Inden Fasten
-Midfaste,Midfaste
-Mariae Bebudelse,Mariae Bebudelse
-Palmesoendag,Palmesoendag
-Skærtorsdag,Skærtorsdag
-Langfredag,Langfredag
-Påskedag,Påskedag
-Anden Påskedag,2. Påskedag
-Foerste Soendag Efter Påske,1. Soendag Efter Påske
-Anden Soendag Efter Påske,2. Soendag Efter Påske
-Tredje Soendag Efter Påske,3. Soendag Efter Påske
-Bededag,Bededag
-Fjerde Soendag Efter Påske,4. Soendag Efter Påske
-Femte Soendag Efter Påske,5. Soendag Efter Påske
-Kristi Himmelfart,Kristi Himmelfart
-Sjette Soendag Efter Påske,6. Soendag Efter Påske
-Pinsedag,Pinsedag
-Anden Pinsedag,2. Pinsedag
-Trinitatis,Trinitatis
-Foerste Soendag Efter Trinitatis,1. Soendag Efter Trinitatis
-Anden Soendag Efter Trinitatis,2. Soendag Efter Trinitatis
-Tredje Soendag Efter Trinitatis,3. Soendag Efter Trinitatis
-Fjerde Soendag Efter Trinitatis,4. Soendag Efter Trinitatis
-Femte Soendag Efter Trinitatis,5. Soendag Efter Trinitatis
-Sjette Soendag Efter Trinitatis,6. Soendag Efter Trinitatis
-Syvende Soendag Efter Trinitatis,7. Soendag Efter Trinitatis
-Ottende Soendag Efter Trinitatis,8. Soendag Efter Trinitatis
-Niende Soendag Efter Trinitatis,9. Soendag Efter Trinitatis
-Tiende Soendag Efter Trinitatis,10. Soendag Efter Trinitatis
-Ellevte Soendag Efter Trinitatis,11. Soendag Efter Trinitatis
-Tolvte Soendag Efter Trinitatis,12. Soendag Efter Trinitatis
-Trettende Soendag Efter Trinitatis,13. Soendag Efter Trinitatis
-Fjortende Soendag Efter Trinitatis,14. Soendag Efter Trinitatis
-Femtende Soendag Efter Trinitatis,15. Soendag Efter Trinitatis
-Sekstende Soendag Efter Trinitatis,16. Soendag Efter Trinitatis
-Syttende Soendag Efter Trinitatis,17. Soendag Efter Trinitatis
-Attende Soendag Efter Trinitatis,18. Soendag Efter Trinitatis
-Nittende Soendag Efter Trinitatis,19. Soendag Efter Trinitatis
-Tyvende Soendag Efter Trinitatis,20. Soendag Efter Trinitatis
-Enogtyvende Soendag Efter Trinitatis,21. Soendag Efter Trinitatis
-Toogtyvende Soendag Efter Trinitatis,22. Soendag Efter Trinitatis
-Treogtyvende Soendag Efter Trinitatis,23. Soendag Efter Trinitatis
-Fireogtyvende Soendag Efter Trinitatis,24. Soendag Efter Trinitatis
-Femogtyvende Soendag Efter Trinitatis,25. Soendag Efter Trinitatis
-Seksogtyvende Soendag Efter Trinitatis,26. Soendag Efter Trinitatis
-Syvogtyvende Soendag Efter Trinitatis,27. Soendag Efter Trinitatis
-Foerste Soendag I Advent,1. Soendag I Advent
-Anden Soendag I Advent,2. Soendag I Advent
-Tredje Soendag I Advent,3. Soendag I Advent
-Fjerde Soendag I Advent,4. Soendag I Advent
-Juledag,Juledag
-Anden Juledag,2. Juledag
-Julesoendag,Julesoendag
-Allehelgen,Allehelgen
-Sidste Soendag I Kirkeaaret,Sidste Soendag I Kirkeaaret
+Helligdag,Fremvisning Navn,,,,,
+Nytårsdag,Nytårsdag,,,,,0
+Soendag Efter Nytår,Soendag efter nytår,,,,-,
+Helligtrekonger,Helligtrekonger,,,,,
+Foerste Soendag Efter Helligtrekonger,1. Soendag efter H3K,,,,,
+Anden Soendag Efter Helligtrekonger,2. Soendag efter H3K,,,,,
+Tredje Soendag Efter Helligtrekonger,3. Soendag efter H3K,,,,,5
+Fjerde Soendag Efter Helligtrekonger,4. Soendag efter H3K,,,,,
+Femte Soendag Efter Helligtrekonger,5. Soendag efter H3K,,,,,
+Sjette Soendag Efter Helligtrekonger,6. Soendag efter H3K,,,,,
+Sidste Soendag Efter Helligtrekonger,Sidste Soendag efter H3K,,,,-,
+Septuagesima,Septuagesima,,,,,10
+Sexagesima,Sexagesima,,,,,
+Fastelavn,Fastelavn,,,,,
+Foerste Soendag Inden Fasten,1. Soendag Inden Fasten,,,,,
+Anden Soendag Inden Fasten,2. Soendag Inden Fasten,,,,,
+Tredje Soendag Inden Fasten,3. Soendag Inden Fasten,,,,,15
+Midfaste,Midfaste,,,,,
+Mariae Bebudelse,Mariae Bebudelse,,,,,
+Palmesoendag,Palmesoendag,,,,,
+Skærtorsdag,Skærtorsdag,,,,,
+Langfredag,Langfredag,,,,,20
+Påskedag,Påskedag,,,,,
+Anden Påskedag,2. Påskedag,,,,,
+Foerste Soendag Efter Påske,1. Soendag Efter Påske,,,,,
+Anden Soendag Efter Påske,2. Soendag Efter Påske,,,,,
+Tredje Soendag Efter Påske,3. Soendag Efter Påske,,,,,25
+Bededag,Bededag,,,,,
+Fjerde Soendag Efter Påske,4. Soendag Efter Påske,,,,,
+Femte Soendag Efter Påske,5. Soendag Efter Påske,,,,,
+Kristi Himmelfart,Kristi Himmelfart,,,,,
+Sjette Soendag Efter Påske,6. Soendag Efter Påske,,,,,30
+Pinsedag,Pinsedag,,,,,
+Anden Pinsedag,2. Pinsedag,,,,,
+Trinitatis,Trinitatis,,,,,
+Foerste Soendag Efter Trinitatis,1. Soendag Efter Trinitatis,,,,,
+Anden Soendag Efter Trinitatis,2. Soendag Efter Trinitatis,,,,,35
+Tredje Soendag Efter Trinitatis,3. Soendag Efter Trinitatis,,,,,
+Fjerde Soendag Efter Trinitatis,4. Soendag Efter Trinitatis,,,,,
+Femte Soendag Efter Trinitatis,5. Soendag Efter Trinitatis,,,,,
+Sjette Soendag Efter Trinitatis,6. Soendag Efter Trinitatis,,,,,
+Syvende Soendag Efter Trinitatis,7. Soendag Efter Trinitatis,,,,,40
+Ottende Soendag Efter Trinitatis,8. Soendag Efter Trinitatis,,,,,
+Niende Soendag Efter Trinitatis,9. Soendag Efter Trinitatis,,,,,
+Tiende Soendag Efter Trinitatis,10. Soendag Efter Trinitatis,,,,,
+Ellevte Soendag Efter Trinitatis,11. Soendag Efter Trinitatis,,,,,
+Tolvte Soendag Efter Trinitatis,12. Soendag Efter Trinitatis,,,,,45
+Trettende Soendag Efter Trinitatis,13. Soendag Efter Trinitatis,,,,,
+Fjortende Soendag Efter Trinitatis,14. Soendag Efter Trinitatis,,,,,
+Femtende Soendag Efter Trinitatis,15. Soendag Efter Trinitatis,,,,,
+Sekstende Soendag Efter Trinitatis,16. Soendag Efter Trinitatis,,,,,
+Syttende Soendag Efter Trinitatis,17. Soendag Efter Trinitatis,,,,,50
+Attende Soendag Efter Trinitatis,18. Soendag Efter Trinitatis,,,,,
+Nittende Soendag Efter Trinitatis,19. Soendag Efter Trinitatis,,,,,
+Tyvende Soendag Efter Trinitatis,20. Soendag Efter Trinitatis,,,,,
+Enogtyvende Soendag Efter Trinitatis,21. Soendag Efter Trinitatis,,,,,
+Toogtyvende Soendag Efter Trinitatis,22. Soendag Efter Trinitatis,,,,,55
+Treogtyvende Soendag Efter Trinitatis,23. Soendag Efter Trinitatis,,,,,
+Fireogtyvende Soendag Efter Trinitatis,24. Soendag Efter Trinitatis,,,,,
+Femogtyvende Soendag Efter Trinitatis,25. Soendag Efter Trinitatis,,,,,
+Seksogtyvende Soendag Efter Trinitatis,26. Soendag Efter Trinitatis,,,,,
+Syvogtyvende Soendag Efter Trinitatis,27. Soendag Efter Trinitatis,,,,,60
+Foerste Soendag I Advent,1. Soendag I Advent,,,,,
+Anden Soendag I Advent,2. Soendag I Advent,,,,,
+Tredje Soendag I Advent,3. Soendag I Advent,,,,,
+Fjerde Soendag I Advent,4. Soendag I Advent,,,,,
+Juledag,Juledag,,,,,65
+Anden Juledag,2. Juledag,,,,,
+Julesoendag,Julesoendag,,,,,
+Allehelgen,Allehelgen,,,,,
+Sidste Soendag I Kirkeaaret,Sidste Soendag I Kirkeaaret,,,,-,69
